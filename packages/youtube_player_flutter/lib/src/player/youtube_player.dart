@@ -386,7 +386,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
                                 const PlaybackSpeedButton(),
                                 widget.fullScreenButton == true
                                     ? FullScreenButton()
-                                    : const SizedBox.shrink()
+                                    : const SizedBox(width: 8.0),
                               ],
                         ),
                       ),
