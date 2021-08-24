@@ -54,6 +54,13 @@ class YoutubePlayer extends StatefulWidget {
   /// {@endtemplate}
   final double? width;
 
+  /// {@template youtube_player_flutter.fullScreenButton}
+  /// Displays the button fullScreenButton
+  ///
+  /// Default is true.
+  /// {@endtemplate}
+  final bool? fullScreenButton;
+
   /// {@template youtube_player_flutter.aspectRatio}
   /// Defines the aspect ratio to be assigned to the player. This property along with [width] calculates the player size.
   ///
@@ -137,6 +144,7 @@ class YoutubePlayer extends StatefulWidget {
     this.key,
     required this.controller,
     this.width,
+    this.fullScreenButton = true,
     this.aspectRatio = 16 / 9,
     this.controlsTimeOut = const Duration(seconds: 3),
     this.bufferIndicator,
@@ -376,7 +384,9 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
                                 ),
                                 RemainingDuration(),
                                 const PlaybackSpeedButton(),
-                                FullScreenButton(),
+                                widget.fullScreenButton == true
+                                    ? FullScreenButton()
+                                    : const SizedBox.shrink()
                               ],
                         ),
                       ),
